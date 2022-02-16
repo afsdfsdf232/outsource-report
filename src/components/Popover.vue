@@ -40,7 +40,7 @@ export default defineComponent({
         url: '//storage.djyanbao.com/dj-static/web/20220215014950/img/wechat_gzh.ce2bfddb.png'
       },
       {
-        title: '在线报名',
+        title: '活动报名',
         url: require('../assets/images/zxbm-ercode.png'),
         icon: require('../assets/images/zxbm-icon.png')
       },
