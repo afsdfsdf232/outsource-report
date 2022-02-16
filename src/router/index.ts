@@ -1,25 +1,131 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } from 'vue-router'
+import Home from '@/views/home/index.vue'
+import LayOut from '@/Layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'LayOut',
+    redirect: '/home',
+    component: LayOut,
+    children: [
+      {
+        path: 'home',
+        name: 'Home',
+        meta: {
+          title: '回到首页',
+          icon: 'home',
+          before: true,
+          isNav: true,
+          width: 16
+        },
+        component: Home
+      },
+      {
+        path: 'search',
+        name: 'Search',
+        meta: {
+          title: '高级搜索',
+          isNav: true
+        },
+        component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
+      },
+      {
+        path: 'data',
+        name: 'Data',
+        meta: {
+          title: '洞见数据',
+          isNav: true,
+          icon: 'data',
+          width: 28
+        },
+        component: () => import(/* webpackChunkName: "about" */ '@/views/data/index.vue')
+      }
+    ]
+  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   meta: {
+  //     title: '回到首页',
+  //     icon: 'home',
+  //     before: true,
+  //     isNav: true,
+  //     width: 16
+  //   },
+  //   component: Home
+  // },
+  // {
+  //   path: '/search',
+  //   name: 'Search',
+  //   meta: {
+  //     title: '高级搜索',
+  //     isNav: true
+  //   },
+  //   component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
+  // },
+  // {
+  //   path: '/data',
+  //   name: 'Data',
+  //   meta: {
+  //     title: '洞见数据',
+  //     isNav: true,
+  //     icon: 'data',
+  //     width: 28
+  //   },
+  //   component: () => import(/* webpackChunkName: "about" */ '@/views/data/index.vue')
+  // },
+  {
+    path: '/ventureCapital',
+    name: 'VentureCapital',
+    meta: {
+      title: '创投信息',
+      isNav: false,
+      icon: 'ventureCapital',
+      width: 28
+    },
+    component: () => import(/* webpackChunkName: "about" */ '@/views/ventureCapital/index.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/group',
+    name: 'Group',
+    meta: {
+      title: '洞见圈社群',
+      isNav: false,
+      icon: 'group',
+      width: 28
+    },
+    component: () => import(/* webpackChunkName: "about" */ '@/views/group/index.vue')
+  },
+  {
+    path: '/vip',
+    name: 'Vip',
+    meta: {
+      title: 'VIP权益',
+      isNav: false
+    },
+    component: () => import(/* webpackChunkName: "about" */ '@/views/vip/index.vue')
+  },
+  {
+    path: '/consulting',
+    name: 'Consulting',
+    meta: {
+      title: '咨询研究',
+      isNav: false,
+      icon: 'ventureCapital',
+      width: 28
+    },
+    component: () => import(/* webpackChunkName: "about" */ '@/views/consulting/index.vue')
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: () => import('@/views/detail/index.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes
 })
-
 export default router

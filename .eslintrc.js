@@ -13,6 +13,13 @@ module.exports = {
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'space-before-function-paren': 'off',
+    'vue/no-parsing-error': 'off',
+    'vue/no-duplicate-attributes': 'off',
+    '@typescript-eslint/explicit-module-boundary-types':'off',
+    '@typescript-eslint/no-var-requires': 'off'
   }
 }
