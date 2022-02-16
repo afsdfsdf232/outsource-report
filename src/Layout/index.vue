@@ -8,6 +8,7 @@
     </div>
     <my-footer />
   </div>
+  <my-popover/>
 </template>
 
 <script lang="ts">
@@ -15,13 +16,15 @@ import { defineComponent, computed } from 'vue'
 import { useRouter, RouteRecordRaw } from 'vue-router'
 import Header from '@/Layout/header.vue'
 import Footer from '@/Layout/footer.vue'
+import Popover from '@/components/Popover.vue'
 const filterRouters = (routers: Array<RouteRecordRaw>) =>
   routers.filter((route: RouteRecordRaw) => route.meta?.isNav)
 export default defineComponent({
   name: 'Main',
   components: {
     'my-header': Header,
-    'my-footer': Footer
+    'my-footer': Footer,
+    'my-popover': Popover
   },
   setup() {
     const router = useRouter()

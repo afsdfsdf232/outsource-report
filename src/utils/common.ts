@@ -63,3 +63,14 @@ export enum DownLoadTypes {
   word = '3',
   excel = '4'
 }
+
+export const backTop = (time: number = 30) => {
+  const timer = setInterval(function() {
+    const osTop = document.documentElement.scrollTop || document.body.scrollTop
+    const ispeed = Math.floor(-osTop / 5)
+    document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
+    if (osTop === 0) {
+      clearInterval(timer)
+    }
+  }, time)
+}
