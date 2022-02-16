@@ -40,6 +40,11 @@ export default defineComponent({
         url: '//storage.djyanbao.com/dj-static/web/20220215014950/img/wechat_gzh.ce2bfddb.png'
       },
       {
+        title: '在线报名',
+        url: require('../assets/images/zxbm-ercode.png'),
+        icon: require('../assets/images/zxbm-icon.png')
+      },
+      {
         icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAyCAYAAAAayliMAAAAAXNSR0IArs4c6QAABNZJREFUaEPVmkmIXUUUhr/feZ6I4IS4UKNRF8YhilEkjhEVjBEjJroIiWg2QSQOG0WMCBLcKFESMJqIrSDGETSJ4rBQnANiEgUn1KiItnGejvxN3eb1za37hu7Oe+9sHt11T9X5b51b9Z+/SoyBRcQuwDnAycAhwMHp9yDgL+A74Nv0+xWwDnhJ0p+jHV6ddhARewIXADPS7x5t9vUL8ALwNLBa0s9t+g893jaAiNgVWAjcBOzVyaAVPj8AdwL3tTsrLQOIiO2A2cDilB5jFPuIbr4AbgMelvRvKwO0BCAinNdPpBxvpd/RPvMqcJkkfzu11hRARJwEPAUc2KyzMW7/0t+XpLfr+q0FEBGXAw8Czvtu2B/AfEkrc4NnAUTE1cCKbkRdGjOAWZIer4qlEkBETAFeAXbuAQAOwTNxpqQ3y/FsBSAinOvOO29CvWTeCKdI+rwxqBEAImIH4DXglF6KvCGW94ATJf1X/K8M4Brg/h4NvghrnqTlWwGIiN2AT7qwXLb7vjYDh0v61Y7DMxARt6Rdtt0Ou/H87ZJuHQYQEfsCnwJ7dyOaDsb8zYuMpMGhGYiIucBwXnXQYTdc5khaVQAwVbi4G1GMYswnJc1Qosems92iC51i+B2YYAB+856BfrSZBnBPKlD6EcBiAxgAzDrrzBzknVTrnttium0BXgS+T3XE5BbfkGuAt4B9vOs24WMrDOBlE6VM52aCcyWZUg9ZRBwBPO/NpCagD7woSHKFVfgtAO5tAsLsd4EkL5Me66hUSE3K+K01gA+B3APLJc0rO0fE1MSZqvo16EmSNlT41c224zhe0t+NfhFxDLAecElbtg0G4CmekEF4iaTVlVFG/Jimudy8SdLEjM8c17uZse6WtCjj9xHg2SjboAHkAvHDMyW5Fh5hEeH9YxCwtFK2jZKqBnNKXAmsygC4S9LNGQC5LNlsAJ6e4zKdrpR0VQWAs4C1GR9TXafQxgq/R11dZfzeT1R5hBoREf7WnI7bV/itN4DnkjCV6ZfrJC0tGiPC34t9Dss5AObtF0r6usFvPvBAjY+bvKQvkvSP/4gIK3zeo07I+K0zAPN/1wF15iXUVZo7PBuwlNjMnJrPpGXUBdJpzRxSu2fu9UQsLVfWEcwBA3DeWRXrR7vDALxZeOPoR5tasFGLSFbf+smcovsXALxDeqfsJ3tM0qwCgD/MNf0UPXCFpIECgH/NX3L7Qa9h+xg42gp2Y1HfT3XBbEmP+K2WdSHTZh8T9bKZFx1biFtlANPS+VUvA7hI0rNFgFXa6BLg+h5FsETSDY2xVQHYMSnTp/YYCGu20wqelJ0BN6QjJROyXJ2wrbFZTpws6ZvywHUHHL2yKn0GnCdpU9Vba3bE1O1VyXvT9Ko3X5tCRWNEuHpyFdUNc8F0abMD8LoUcuFuPm95Y1vaT8CNwDJJFghqrbwPWKU+H7gWOL2Z8zi0W7VYKMnHSS1ZwYWs9SwDzujk+kFLI+Uf8gGeTyCXSnqj3b4audBOgFW36UnosrJQpcW0O0bV8y7cLSY8lK4VmNt3ZHXfwO6ARaUjkwp3aMMVmgOA/VqYLSvIXrt9xcYM0rX1u2a+ktw2amt61SA3QkRY5vBtFV+z8elmYZZVfJVmiyTfFRpX6xjAuEbVRuf/A/KFjvbjpTNCAAAAAElFTkSuQmCC',
         title: '联系客服',
         url: '//storage.djyanbao.com/dj-static/web/20220215014950/img/wechat_gzh.ce2bfddb.png'
