@@ -21,7 +21,7 @@
       <div class="er-code">
           <div class="company-code daily">
             <img
-              src="//storage.djyanbao.com/dj-static/web/20220121031006/img/daily.1a65ed98.png"
+              src="../assets/images/psdj.jpg"
               alt="洞见daily"
             />
             <div class="txt">微信扫码关注</div>
@@ -29,7 +29,7 @@
           </div>
           <div class="company-code">
             <img
-              src="//storage.djyanbao.com/dj-static/web/20220121031006/img/consulting-qr.1ec693d6.png"
+              src="../assets/images/psdj.jpg"
               alt="客服二维码"
             />
             <div class="txt">联系客服领福利</div>

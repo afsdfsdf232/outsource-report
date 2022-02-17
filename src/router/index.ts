@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } from 'vue-router'
+import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import Home from '@/views/home/index.vue'
 import LayOut from '@/Layout/index.vue'
 
@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'search',
         name: 'Search',
         meta: {
-          title: '高级搜索',
+          title: '易所咨询',
           isNav: true
         },
         component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'data',
         name: 'Data',
         meta: {
-          title: '洞见数据',
+          title: '合作律师',
           isNav: true,
           icon: 'data',
           width: 28
