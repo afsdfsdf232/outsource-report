@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ElMessage } from 'element-plus'
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_URL,
-  timeout: 50000,
+  timeout: Infinity,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }

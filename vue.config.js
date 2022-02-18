@@ -26,7 +26,7 @@ module.exports = {
     proxy: {
       '/api': {
         // 目标服务器,代理访问到http://localhost:8888
-        target: 'http://42.193.39.158:8812/api',
+        target: 'http://47.97.252.122:8812/api',
         changOrigin: true, // 开启代理
         pathRewrite: {
           '^/api': ''
