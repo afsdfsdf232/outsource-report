@@ -40,6 +40,7 @@ export default defineComponent({
         console.log('当前设备-电脑')
       }
     }
+    window.onresize = () => os()
     os()
     onMounted(() => {
       getOtherConfigInfo()
