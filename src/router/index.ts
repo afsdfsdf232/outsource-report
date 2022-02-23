@@ -17,7 +17,8 @@ const routes: Array<RouteRecordRaw> = [
           icon: 'home',
           before: true,
           isNav: true,
-          width: 16
+          width: 16,
+          customerTitle: 'topTitle1'
         },
         component: Home
       },
@@ -26,6 +27,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Search',
         meta: {
           title: '易所咨询',
+          customerTitle: 'topTitle1',
           isNav: true
         },
         component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
@@ -37,7 +39,8 @@ const routes: Array<RouteRecordRaw> = [
           title: '合作律师',
           isNav: true,
           icon: 'data',
-          width: 28
+          width: 28,
+          customerTitle: 'topTitle3'
         },
         component: () => import(/* webpackChunkName: "about" */ '@/views/data/index.vue')
       }
@@ -120,6 +123,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/detail',
     name: 'Detail',
+    meta: {
+      title: '预览详情'
+    },
     component: () => import('@/views/detail/index.vue')
   }
 ]
@@ -127,5 +133,11 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.afterEach((to) => {
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title as string
+  }
 })
 export default router

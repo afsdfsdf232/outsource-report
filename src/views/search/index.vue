@@ -200,8 +200,9 @@
 
 <script lang="ts">
 import { Search } from '@element-plus/icons-vue'
-import { defineComponent, ref, reactive, Ref, onMounted, computed, nextTick } from 'vue'
+import { defineComponent, ref, reactive, Ref, onMounted, computed, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { icons, QueryAllProps } from './common'
 import { HotWordsProps, searchTyps } from '../home/common'
 import { getHotWordsList, getArticleList, getClassList, getFileStream } from '@/api/index'
@@ -210,6 +211,7 @@ import { ElMessage } from 'element-plus'
 export default defineComponent({
   name: 'search',
   setup() {
+    const store = useStore()
     const listLoading = ref(false)
     const filterLoading = ref(false)
     const route = useRoute()
@@ -378,6 +380,12 @@ export default defineComponent({
       getClassListAll()
       getHotWords()
       getArticleAll(queryAll)
+    })
+    watch(() => store.state.configInfo, val => {
+      if (val.topTitle1) document.title = val.topTitle2
+    }, {
+      immediate: true,
+      deep: true
     })
     return {
       listLoading,

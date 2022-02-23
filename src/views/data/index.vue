@@ -108,14 +108,16 @@
 
 <script lang="ts">
 import { Search } from '@element-plus/icons-vue'
-import { defineComponent, ref, reactive, onMounted, Ref } from 'vue'
+import { defineComponent, ref, reactive, onMounted, Ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { icons } from '../search/common'
 import { searchTyps } from '../home/common'
 import { getDataImage, getHotWordsList } from '@/api/index'
 export default defineComponent({
   name: 'search',
   setup() {
+    const store = useStore()
     const router = useRouter()
     const page = ref(2)
     const url:Ref<string> = ref('')
@@ -163,6 +165,12 @@ export default defineComponent({
         }
       })
     }
+    watch(() => store.state.configInfo, val => {
+      if (val.topTitle1) document.title = val.topTitle3
+    }, {
+      immediate: true,
+      deep: true
+    })
     return {
       ...icons,
       page,

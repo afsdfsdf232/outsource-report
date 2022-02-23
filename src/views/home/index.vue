@@ -45,8 +45,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from 'vue'
+import { defineComponent, onMounted, ref, Ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { getHomeArticleList, getHotWordsList } from '@/api/index'
 import Card from './components/Card.vue'
 import { CardProps, HotWordsProps, searchTyps } from './common'
@@ -57,6 +58,7 @@ export default defineComponent({
     card: Card
   },
   setup() {
+    const store = useStore()
     const router = useRouter()
     // 输入框搜索内容
     const inputValue: Ref<string> = ref('')
@@ -112,6 +114,13 @@ export default defineComponent({
     onMounted(() => {
       getArticleList()
       getHotWords()
+    })
+    // 设置标题
+    watch(() => store.state.configInfo, val => {
+      if (val.topTitle1) document.title = val.topTitle1
+    }, {
+      immediate: true,
+      deep: true
     })
     return {
       hotCardList,

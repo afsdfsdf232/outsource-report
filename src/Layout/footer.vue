@@ -5,10 +5,11 @@
         <div class="desc">
           <p class="title">关于我们</p>
           <p>
-            洞见研报隶属于上海顺铭信息科技有限公司，洞见研报全面覆盖各投资领域，依托海量的宏观策略、行业发展、上市公司等研究报告，采用智能搜索引擎、专业OCR识别、文档结构化解析、自然语言处理等技术，致力于为金融投资人员、企业高管、咨询顾问、行业研究员、市场分析师、市场运营人员等提供便捷、全面的实时、专业的信息检索服务。【上海顺铭信息科技有限公司】
+            {{footerInfo.aboutUs}}
+            <span v-if="!footerInfo.aboutUs">请后台配置内容...</span>
           </p>
         </div>
-        <div class="desc">
+        <!-- <div class="desc">
           <p>
             商务合作、企业采购、机构入驻、报告发布：collaboration@djyanbao.com
           </p>
@@ -16,22 +17,26 @@
             >地址：上海市杨浦区黄兴路2077号蓝天大厦1607室</span
           ><span class="desc-title go-href">《网站服务协议》</span
           ><span class="desc-title go-href">《隐私政策协议》</span>
-        </div>
+        </div> -->
       </div>
       <div class="er-code">
           <div class="company-code daily">
             <img
-              src="../assets/images/footer-1.png"
+              v-if="footerInfo.scanQrcode"
+              :src="footerInfo.scanQrcode"
               alt="洞见daily"
             />
+            <span>请配置图片...</span>
             <div class="txt">微信扫码关注</div>
-            <div class="txt2">享受每日最新洞见</div>
+            <!-- <div class="txt2">享受每日最新洞见</div> -->
           </div>
           <div class="company-code">
             <img
-              src="../assets/images/footer-2.jpg"
+              v-if="footerInfo.contactCustomerQrcode"
+              :src="footerInfo.contactCustomerQrcode"
               alt="客服二维码"
             />
+            <span v-else>请配置图片...</span>
             <div class="txt">联系客服领福利</div>
           </div>
       </div>
@@ -40,9 +45,9 @@
     <div class="botton-content">
       <div class="flexr0c">
         <div class="right-info">
-          Copyright© 2021 上海顺铭信息科技有限公司
-          <a href="https://beian.miit.gov.cn" target="_blank"
-            >沪ICP备2021005678号-1</a
+          Copyright© {{footerInfo.copyright || '请后台配置Copyright...'}}
+          <a href="#"
+            > {{footerInfo.filing}}</a
           >
         </div>
         <img
@@ -50,15 +55,14 @@
           alt="警徽"
           style="margin: 0px 10px"
         /><a
-          target="_blank"
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011002005605"
+          href="#"
           style="
             display: inline-block;
             text-decoration: none;
             height: 20px;
             line-height: 20px;
           "
-          ><img src="" style="float: left" />
+          >
           <div
             style="
               float: left;
@@ -67,7 +71,8 @@
               margin: 0px 0px 0px 5px;
             "
           >
-            沪公网安备 31011002005605号
+            {{footerInfo.security || '请后台配置信息...'}}
+            <!-- 沪公网安备 31011002005605号 -->
           </div></a
         >
       </div>
@@ -76,10 +81,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
 export default defineComponent({
   setup() {
-    return {}
+    const store = useStore()
+    const footerInfo = computed(() => store.state.configInfo)
+    return {
+      footerInfo
+    }
   }
 })
 </script>
@@ -91,6 +101,7 @@ export default defineComponent({
   color: #a8b4bf;
   font-size: 14px;
   box-sizing: border-box;
+  padding: 10px 0;
   .flex,
   .botton-content {
     width: 100%;

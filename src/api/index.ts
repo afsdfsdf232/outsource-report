@@ -20,3 +20,6 @@ export const getArticleDetail = (id: string) => get(`/api/articleDetail/${id}`)
 
 // 下载文件，获取文件流
 export const getFileStream = (articleId: string, type: string) => getDownloadFile(`/api/downloadFile/${articleId}/${type}`)
+
+// 获取其它配置信息 （二维码，顶部标题，底部信息）
+export const getOtherInfo = () => get('/api/otherInfo')
