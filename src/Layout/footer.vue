@@ -26,7 +26,7 @@
               :src="footerInfo.scanQrcode"
               alt="洞见daily"
             />
-            <span>请配置图片...</span>
+            <span v-else>请配置图片...</span>
             <div class="txt">微信扫码关注</div>
             <!-- <div class="txt2">享受每日最新洞见</div> -->
           </div>
@@ -46,7 +46,7 @@
       <div class="flexr0c">
         <div class="right-info">
           Copyright© {{footerInfo.copyright || '请后台配置Copyright...'}}
-          <a href="#"
+          <a href="https://beian.miit.gov.cn/"
             > {{footerInfo.filing}}</a
           >
         </div>
@@ -55,7 +55,7 @@
           alt="警徽"
           style="margin: 0px 10px"
         /><a
-          href="#"
+          href="http://www.beian.gov.cn"
           style="
             display: inline-block;
             text-decoration: none;

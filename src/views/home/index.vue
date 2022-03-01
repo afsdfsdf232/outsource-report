@@ -5,7 +5,7 @@
         <img src="./../../assets/images/logo.png" alt="" />
       </div>
       <p class="sub-title">
-        行业研究，宏观策略，管理咨询，产业链贯穿，公司深挖，招股书，政策法规
+        信披研究，个股风险，违规线索，投资维权，政策法规，投资者咨询
       </p>
       <div class="search-container">
         <div class="search-input">
