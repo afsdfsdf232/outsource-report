@@ -1,12 +1,12 @@
 <template>
-    <router-view/>
+  <router-view />
 </template>
 <script lang="ts">
-import { getOtherInfo } from '@/api/index'
+import { getOtherInfo, getWebsiteSetting } from '@/api/index'
 import { defineComponent, onMounted } from 'vue'
 import { useStore } from 'vuex'
 export default defineComponent({
-  setup () {
+  setup() {
     const store = useStore()
     const getOtherConfigInfo = async () => {
       const { code, data } = await getOtherInfo()
@@ -17,7 +17,29 @@ export default defineComponent({
         if (!data.topTitle3) data.topTitle3 = '默认标题3'
         store.commit('SET_CONFIG_INFO', data)
       }
-      console.log('config-data:', data)
+    }
+    const getWebsiteSettings = async () => {
+      const { code, data } = await getWebsiteSetting()
+      if (code === 200) {
+        const { description, filing, info, keyword, logo } = data
+        const metas = {
+          description,
+          filing,
+          info,
+          keyword,
+          logo
+        }
+        const head = document.getElementsByTagName('head')
+        const createEle = (name: string, content: string) => {
+          const meta = document.createElement('meta')
+          meta.name = name
+          meta.content = content || ''
+          head[0].prepend(meta)
+        }
+        for (const key in metas) {
+          createEle(key, (metas as any)[key])
+        }
+      }
     }
     const href: string = 'http://www.smsoftware.cn/'
     const os = () => {
@@ -27,32 +49,32 @@ export default defineComponent({
       var isAndroid = /(?:Android)/.test(ua)
       var isFireFox = /(?:Firefox)/.test(ua)
       var isTablet =
-          /(?:iPad|PlayBook)/.test(ua) ||
-          (isAndroid && !/(?:Mobile)/.test(ua)) ||
-          (isFireFox && /(?:Tablet)/.test(ua))
+        /(?:iPad|PlayBook)/.test(ua) ||
+        (isAndroid && !/(?:Mobile)/.test(ua)) ||
+        (isFireFox && /(?:Tablet)/.test(ua))
       var isPhone = /(?:iPhone)/.test(ua) && !isTablet
-      var isPc = !isPhone && !isAndroid && !isSymbian
+      // var isPc = !isPhone && !isAndroid && !isSymbian
       if (isAndroid || isPhone) {
         window.location.href = href
       } else if (isTablet) {
         window.location.href = href
-      } else if (isPc) {
-        console.log('当前设备-电脑')
       }
     }
     window.onresize = () => os()
     os()
     onMounted(() => {
+      getWebsiteSettings()
       getOtherConfigInfo()
     })
-    return {
-
-    }
+    return {}
   }
 })
 </script>
 <style lang="scss">
-html, body, div,p {
+html,
+body,
+div,
+p {
   margin: 0;
   box-sizing: border-box;
   padding: 0;

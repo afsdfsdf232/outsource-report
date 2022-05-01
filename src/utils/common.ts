@@ -6,7 +6,8 @@ export function getFileAndDownload(fileName: string, url: string) {
       x.responseType = 'blob'
       x.onload = function (e) {
         const blob = x.response
-        if ('msSaveOrOpenBlob' in navigator) { // IE导出
+        if ('msSaveOrOpenBlob' in navigator) {
+          // IE导出
           window.navigator.msSaveOrOpenBlob(blob, fileName)
         } else {
           const a = document.createElement('a')
@@ -23,7 +24,6 @@ export function getFileAndDownload(fileName: string, url: string) {
       }
       x.send()
     } catch (err) {
-      console.log('err:', err)
       reject(err)
     }
   })
@@ -58,17 +58,18 @@ export const getFileName = (url: string) => {
 export type FileTyps = 'pdf' | 'ppt' | 'word' | 'excel'
 
 export enum DownLoadTypes {
-  pdf='0',
-  ppt='2',
+  pdf = '0',
+  ppt = '2',
   word = '3',
   excel = '4'
 }
 
 export const backTop = (time: number = 30) => {
-  const timer = setInterval(function() {
+  const timer = setInterval(function () {
     const osTop = document.documentElement.scrollTop || document.body.scrollTop
     const ispeed = Math.floor(-osTop / 5)
-    document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
+    document.documentElement.scrollTop = document.body.scrollTop =
+      osTop + ispeed
     if (osTop === 0) {
       clearInterval(timer)
     }

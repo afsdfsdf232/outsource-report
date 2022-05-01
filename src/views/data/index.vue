@@ -1,12 +1,12 @@
 <template>
-  <div class="search-container" style="min-width:1000px">
+  <div class="search-container" style="min-width: 1000px">
     <div class="search">
       <div class="search-detail">
-        <div style="display: flex;align-items: center;">
+        <div style="display: flex; align-items: center">
           <div class="search-logo">
             <img src="../../assets/images/search-logo.png" alt="" />
           </div>
-          <div class="search-input" style="margin-left:10px">
+          <div class="search-input" style="margin-left: 10px">
             <el-input
               v-model="inputValue"
               size="large"
@@ -15,14 +15,20 @@
               placeholder="搜索关键词、行业、公司等…（多个关键词可用空格分开）"
             >
               <template #append>
-                <el-button @click="search('input' )" :icon="Search"></el-button>
+                <el-button @click="search('input')" :icon="Search"></el-button>
               </template>
             </el-input>
           </div>
         </div>
-        <div class="search-hot" v-if="hotWordsList.length>0">
+        <div class="search-hot" v-if="hotWordsList.length > 0">
           <span class="tip">热门搜索：</span>
-          <span class="hover" @click="search('hot',item.hotWord )" v-for="item in hotWordsList" :key="item.hotWord">{{item.hotWord}}</span>
+          <span
+            class="hover"
+            @click="search('hot', item.hotWord)"
+            v-for="item in hotWordsList"
+            :key="item.hotWord"
+            >{{ item.hotWord }}</span
+          >
         </div>
       </div>
     </div>
@@ -83,8 +89,8 @@
           </div>
           <div class="filter-options time">
             <span>发布时间：</span>
-             <n-date-picker
-             style="margin-right: 10px"
+            <n-date-picker
+              style="margin-right: 10px"
               v-model:value="filterTime"
               type="daterange"
               clearable
@@ -93,15 +99,13 @@
             <n-button ghost size="small" style="margin: 0 10px">
               近一周
             </n-button>
-            <n-button ghost size="small">
-              近一个月
-            </n-button>
+            <n-button ghost size="small"> 近一个月 </n-button>
           </div>
         </div>
       </div>
     </div>
     <div class="content-list" v-loading="loading">
-      <img v-if="url" :src="url" alt="">
+      <img v-if="url" :src="url" alt="" />
     </div>
   </div>
 </template>
@@ -120,7 +124,7 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const page = ref(2)
-    const url:Ref<string> = ref('')
+    const url: Ref<string> = ref('')
     const reportPage = ref('')
     const filterTime = ref('')
     const dataTypes = reactive([])
@@ -136,7 +140,6 @@ export default defineComponent({
         url.value = data.url
       }
       loading.value = false
-      console.log('data:', data)
     }
     // 获取热门词列表
     const getHotWords = async () => {
@@ -146,7 +149,7 @@ export default defineComponent({
           hotWordsList.value = data
         }
       } catch (err) {
-        console.log(err)
+        throw Error(err as string)
       }
     }
     // 输入框搜索内容
@@ -155,7 +158,7 @@ export default defineComponent({
       getImg()
       getHotWords()
     })
-    const search = (type: searchTyps, query?: string):void => {
+    const search = (type: searchTyps, query?: string): void => {
       let params = query
       if (type === 'input') params = inputValue.value
       router.push({
@@ -165,12 +168,16 @@ export default defineComponent({
         }
       })
     }
-    watch(() => store.state.configInfo, val => {
-      if (val.topTitle1) document.title = val.topTitle3
-    }, {
-      immediate: true,
-      deep: true
-    })
+    watch(
+      () => store.state.configInfo,
+      (val) => {
+        if (val.topTitle1) document.title = val.topTitle3
+      },
+      {
+        immediate: true,
+        deep: true
+      }
+    )
     return {
       ...icons,
       page,

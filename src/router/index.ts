@@ -30,7 +30,8 @@ const routes: Array<RouteRecordRaw> = [
           customerTitle: 'topTitle1',
           isNav: true
         },
-        component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
+        component: () =>
+          import(/* webpackChunkName: "search" */ '@/views/search/index.vue')
       },
       {
         path: 'data',
@@ -42,42 +43,11 @@ const routes: Array<RouteRecordRaw> = [
           width: 28,
           customerTitle: 'topTitle3'
         },
-        component: () => import(/* webpackChunkName: "about" */ '@/views/data/index.vue')
+        component: () =>
+          import(/* webpackChunkName: "data" */ '@/views/data/index.vue')
       }
     ]
   },
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   meta: {
-  //     title: '回到首页',
-  //     icon: 'home',
-  //     before: true,
-  //     isNav: true,
-  //     width: 16
-  //   },
-  //   component: Home
-  // },
-  // {
-  //   path: '/search',
-  //   name: 'Search',
-  //   meta: {
-  //     title: '高级搜索',
-  //     isNav: true
-  //   },
-  //   component: () => import(/* webpackChunkName: "about" */ '@/views/search/index.vue')
-  // },
-  // {
-  //   path: '/data',
-  //   name: 'Data',
-  //   meta: {
-  //     title: '洞见数据',
-  //     isNav: true,
-  //     icon: 'data',
-  //     width: 28
-  //   },
-  //   component: () => import(/* webpackChunkName: "about" */ '@/views/data/index.vue')
-  // },
   {
     path: '/ventureCapital',
     name: 'VentureCapital',
@@ -87,7 +57,10 @@ const routes: Array<RouteRecordRaw> = [
       icon: 'ventureCapital',
       width: 28
     },
-    component: () => import(/* webpackChunkName: "about" */ '@/views/ventureCapital/index.vue')
+    component: () =>
+      import(
+        /* webpackChunkName: "ventureCapital" */ '@/views/ventureCapital/index.vue'
+      )
   },
   {
     path: '/group',
@@ -98,7 +71,8 @@ const routes: Array<RouteRecordRaw> = [
       icon: 'group',
       width: 28
     },
-    component: () => import(/* webpackChunkName: "about" */ '@/views/group/index.vue')
+    component: () =>
+      import(/* webpackChunkName: "group" */ '@/views/group/index.vue')
   },
   {
     path: '/vip',
@@ -107,7 +81,8 @@ const routes: Array<RouteRecordRaw> = [
       title: 'VIP权益',
       isNav: false
     },
-    component: () => import(/* webpackChunkName: "about" */ '@/views/vip/index.vue')
+    component: () =>
+      import(/* webpackChunkName: "vip" */ '@/views/vip/index.vue')
   },
   {
     path: '/consulting',
@@ -118,7 +93,10 @@ const routes: Array<RouteRecordRaw> = [
       icon: 'ventureCapital',
       width: 28
     },
-    component: () => import(/* webpackChunkName: "about" */ '@/views/consulting/index.vue')
+    component: () =>
+      import(
+        /* webpackChunkName: "consulating" */ '@/views/consulting/index.vue'
+      )
   },
   {
     path: '/detail',
@@ -126,7 +104,8 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: '预览详情'
     },
-    component: () => import('@/views/detail/index.vue')
+    component: () =>
+      import(/* webpackChunkName: "detail" */ '@/views/detail/index.vue')
   }
 ]
 
