@@ -63,6 +63,7 @@ export default defineComponent({
     window.onresize = () => os()
     os()
     onMounted(() => {
+      document.dispatchEvent(new Event('render-event'))
       getWebsiteSettings()
       getOtherConfigInfo()
     })

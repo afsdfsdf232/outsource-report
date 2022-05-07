@@ -666,6 +666,7 @@ export default defineComponent({
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    overflow-x: hidden;
     .content {
       width: 1200px;
       max-width: 1200px;

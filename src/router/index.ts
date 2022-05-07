@@ -1,7 +1,12 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import Home from '@/views/home/index.vue'
+import Search from '@/views/search/index.vue'
 import LayOut from '@/Layout/index.vue'
-
+import Data from '@/views/data/index.vue'
+import VentureCapital from '@/views/ventureCapital/index.vue'
+import Group from '@/views/group/index.vue'
+import Vip from '@/views/vip/index.vue'
+import Consulting from '@/views/consulting/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -13,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home',
         name: 'Home',
         meta: {
-          title: '回到首页',
+          title: '易索515_投资者315_一起索赔 - 易索资讯',
           icon: 'home',
           before: true,
           isNav: true,
@@ -26,25 +31,23 @@ const routes: Array<RouteRecordRaw> = [
         path: 'search',
         name: 'Search',
         meta: {
-          title: '易所咨询',
+          title: '易索515_投资者315_一起索赔 - 易索资讯',
           customerTitle: 'topTitle1',
           isNav: true
         },
-        component: () =>
-          import(/* webpackChunkName: "search" */ '@/views/search/index.vue')
+        component: Search
       },
       {
         path: 'data',
         name: 'Data',
         meta: {
-          title: '合作律师',
+          title: '易索515_投资者315_一起索赔 - 易索资讯',
           isNav: true,
           icon: 'data',
           width: 28,
           customerTitle: 'topTitle3'
         },
-        component: () =>
-          import(/* webpackChunkName: "data" */ '@/views/data/index.vue')
+        component: Data
       }
     ]
   },
@@ -52,57 +55,49 @@ const routes: Array<RouteRecordRaw> = [
     path: '/ventureCapital',
     name: 'VentureCapital',
     meta: {
-      title: '创投信息',
+      title: '易索515_投资者315_一起索赔 - 易索资讯',
       isNav: false,
       icon: 'ventureCapital',
       width: 28
     },
-    component: () =>
-      import(
-        /* webpackChunkName: "ventureCapital" */ '@/views/ventureCapital/index.vue'
-      )
+    component: VentureCapital
   },
   {
     path: '/group',
     name: 'Group',
     meta: {
-      title: '洞见圈社群',
+      title: '易索515_投资者315_一起索赔 - 易索资讯',
       isNav: false,
       icon: 'group',
       width: 28
     },
-    component: () =>
-      import(/* webpackChunkName: "group" */ '@/views/group/index.vue')
+    component: Group
   },
   {
     path: '/vip',
     name: 'Vip',
     meta: {
-      title: 'VIP权益',
+      title: '易索515_投资者315_一起索赔 - 易索资讯',
       isNav: false
     },
-    component: () =>
-      import(/* webpackChunkName: "vip" */ '@/views/vip/index.vue')
+    component: Vip
   },
   {
     path: '/consulting',
     name: 'Consulting',
     meta: {
-      title: '咨询研究',
+      title: '易索515_投资者315_一起索赔 - 易索资讯',
       isNav: false,
       icon: 'ventureCapital',
       width: 28
     },
-    component: () =>
-      import(
-        /* webpackChunkName: "consulating" */ '@/views/consulting/index.vue'
-      )
+    component: Consulting
   },
   {
     path: '/detail',
     name: 'Detail',
     meta: {
-      title: '预览详情'
+      title: '易索515_投资者315_一起索赔 - 易索资讯'
     },
     component: () =>
       import(/* webpackChunkName: "detail" */ '@/views/detail/index.vue')
